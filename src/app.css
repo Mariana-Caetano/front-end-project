@@ -97,7 +97,7 @@ button[type="submit"] {
 
 /* Estilos para o botão de submit ao passar o mouse sobre ele */
 button[type="submit"]:hover {
-  background: #C1FF72;
+  background: #9e85a8;
   color: #4E4180;
 }
 
