@@ -1,3 +1,4 @@
+import { useState } from 'react'; // importar o hook
 import './app.css'
 
 function App() {
@@ -104,7 +105,14 @@ function App() {
         link: 'https://www.youtube.com/live/jb0HlTfUC_g?si=ttEkTJSzMePq1YQM',
       } 
     ];
+
+
+  const [searchTerm, setsearchTerm] = useState('') //declarar o hook
   
+  const cardsFiltrados = cardsData.filter(card => {
+    return card.title.toLowerCase().includes(searchTerm.toLowerCase())
+  })
+
   return (
     <>
       <header>
@@ -112,10 +120,12 @@ function App() {
         <input
           type='text'
           placeholder='Busque um conteúdo'
+          value={searchTerm}
+          onChange={(e) => setsearchTerm(e.target.value)}
         />
       </header>
       <div className='gallery'>
-        {cardsData.map(item => {
+        {cardsFiltrados.map(item => {
           return (
             <>
               <div className='card'>
